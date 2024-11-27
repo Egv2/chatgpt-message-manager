@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChatGPT Message Manager</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Helvetica:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>ChatGPT Message Manager</h1>
+
+      <div class="settings-card">
+        <h2>Schedule Settings</h2>
+
+        <div class="setting-item">
+          <label>Working Days:</label>
+          <div class="days-selector">
+            <label><input type="checkbox" value="1" /> Mon</label>
+            <label><input type="checkbox" value="2" /> Tue</label>
+            <label><input type="checkbox" value="3" /> Wed</label>
+            <label><input type="checkbox" value="4" /> Thu</label>
+            <label><input type="checkbox" value="5" /> Fri</label>
+            <label><input type="checkbox" value="6" /> Sat</label>
+            <label><input type="checkbox" value="0" /> Sun</label>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <label>Start Time:</label>
+          <input type="time" id="startTime" />
+        </div>
+
+        <div class="setting-item">
+          <label>End Time:</label>
+          <input type="time" id="endTime" />
+        </div>
+
+        <div class="setting-item">
+          <label>Notifications:</label>
+          <label class="switch">
+            <input type="checkbox" id="notifications" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="settings-card">
+        <h2>Filter Settings</h2>
+        <div class="setting-item">
+          <label>Message Limit:</label>
+          <input
+            type="number"
+            id="messageLimit"
+            min="1"
+            max="1000"
+            placeholder="100"
+          />
+        </div>
+
+        <div class="setting-item">
+          <label>Delete After (hours):</label>
+          <input
+            type="number"
+            id="deleteTime"
+            min="1"
+            max="720"
+            placeholder="24"
+          />
+        </div>
+
+        <div class="setting-item">
+          <label>Protected Keywords:</label>
+          <div class="whitelist-container">
+            <input
+              type="text"
+              id="whitelistInput"
+              placeholder="Type and press Enter (🔒,important,⭐)"
+            />
+            <div class="whitelist-tags" id="whitelistTags"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-card">
+        <h2>Statistics</h2>
+        <div class="stat-item">
+          <span>Deleted Chats:</span>
+          <span id="deletedChatsCount">0</span>
+        </div>
+        <div class="stat-item">
+          <span>Protected Chats:</span>
+          <span id="protectedChatsCount">0</span>
+        </div>
+      </div>
+
+      <button id="saveSettings" class="primary-button">Save Settings</button>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

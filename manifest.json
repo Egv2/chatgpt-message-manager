@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "ChatGPT Multitool",
+  "version": "1.0",
+  "description": "ChatGPT mesajlarını otomatik olarak silen ve yönetmenizi sağlayan bir eklenti.",
+  "permissions": [
+    "storage",
+    "scripting",
+    "activeTab",
+    "notifications",
+    "webNavigation",
+    "tabs",
+    "webRequest",
+    "debugger"
+  ],
+  "host_permissions": [
+    "https://chat.openai.com/*",
+    "*://*.openai.com/*",
+    "https://*/*",
+    "http://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chat.openai.com/*",
+        "*://*.openai.com/*",
+        "https://*/*",
+        "http://*/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
